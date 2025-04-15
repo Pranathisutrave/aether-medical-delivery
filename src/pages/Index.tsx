@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { 
@@ -6,7 +6,7 @@ import {
   Brain, 
   Clock, 
   MapPin, 
-  Drone, 
+  Rocket, 
   HeartPulse, 
   ShieldAlert,
   Phone
@@ -35,7 +35,7 @@ const Index = () => {
                 </Link>
                 <Link to="/drone-delivery">
                   <Button className="rounded-full bg-medify-red hover:bg-medify-red-dark px-6 py-5">
-                    <Drone size={20} className="mr-2" />
+                    <Rocket size={20} className="mr-2" />
                     Request Delivery
                   </Button>
                 </Link>
@@ -90,7 +90,7 @@ const Index = () => {
             {/* Drone Delivery */}
             <div className="feature-card group">
               <div className="h-14 w-14 rounded-full bg-medify-green/10 flex items-center justify-center mb-6 group-hover:bg-medify-green/20 transition-colors">
-                <Drone className="text-medify-green" size={28} />
+                <Rocket className="text-medify-green" size={28} />
               </div>
               <h3 className="text-xl font-bold mb-3">Drone Delivery</h3>
               <p className="text-gray-600">

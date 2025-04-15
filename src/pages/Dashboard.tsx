@@ -1,5 +1,4 @@
-
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
@@ -13,7 +12,7 @@ import {
 } from "@/components/ui/card";
 import { 
   Stethoscope, 
-  Drone, 
+  Rocket, 
   ShieldAlert, 
   Clock, 
   Package, 
@@ -29,7 +28,6 @@ const Dashboard = () => {
   const { isAuthenticated, user } = useAuth();
   const navigate = useNavigate();
 
-  // Redirect if not authenticated
   useEffect(() => {
     if (!isAuthenticated) {
       navigate("/login");
@@ -48,7 +46,6 @@ const Dashboard = () => {
           <p className="mt-2 text-gray-600">Manage your healthcare needs and drone delivery requests</p>
         </header>
 
-        {/* Quick Actions */}
         <section className="mb-10">
           <h2 className="text-xl font-semibold mb-4">Quick Actions</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -70,7 +67,7 @@ const Dashboard = () => {
               <Card className="h-full hover:shadow-md transition-shadow">
                 <CardContent className="p-6 flex items-center space-x-4">
                   <div className="w-12 h-12 rounded-full bg-medify-green/10 flex items-center justify-center">
-                    <Drone className="text-medify-green" size={24} />
+                    <Rocket className="text-medify-green" size={24} />
                   </div>
                   <div>
                     <h3 className="font-semibold">Request Delivery</h3>
@@ -96,7 +93,6 @@ const Dashboard = () => {
           </div>
         </section>
 
-        {/* Recent Activity */}
         <section className="mb-10">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-xl font-semibold">Recent Activity</h2>
@@ -106,7 +102,6 @@ const Dashboard = () => {
           </div>
 
           <div className="space-y-4">
-            {/* Simulated activity entries */}
             <Card>
               <CardContent className="p-4">
                 <div className="flex items-start space-x-4">
@@ -166,9 +161,7 @@ const Dashboard = () => {
           </div>
         </section>
 
-        {/* Dashboard Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Upcoming Deliveries */}
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center text-lg">
@@ -200,7 +193,6 @@ const Dashboard = () => {
             </CardFooter>
           </Card>
 
-          {/* Health Reminders */}
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center text-lg">
@@ -236,7 +228,6 @@ const Dashboard = () => {
             </CardFooter>
           </Card>
 
-          {/* Health Tips */}
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center text-lg">

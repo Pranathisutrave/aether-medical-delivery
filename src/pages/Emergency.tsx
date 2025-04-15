@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -19,6 +18,7 @@ import {
   Ambulance,
   AlertTriangle,
   ShieldAlert,
+  Rocket,  // Add Rocket import
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { Link } from "react-router-dom";
@@ -315,7 +315,7 @@ const Emergency = () => {
             
             <div className="flex space-x-4">
               <div className="w-10 h-10 rounded-full bg-medify-blue/10 flex items-center justify-center flex-shrink-0">
-                <Drone className="text-medify-blue" size={20} />
+                <Rocket className="text-medify-blue" size={20} />
               </div>
               <div>
                 <h4 className="font-medium">Drone Assessment</h4>

@@ -1,16 +1,5 @@
-
-import { useState } from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { toast } from "sonner";
 import { 
   AlertCircle, 
   MapPin, 
@@ -18,7 +7,7 @@ import {
   Clock, 
   Thermometer, 
   Loader2, 
-  Drone,
+  Rocket,
   CheckCircle2,
   Phone,
 } from "lucide-react";
@@ -60,7 +49,6 @@ const DroneDelivery = () => {
       return;
     }
     
-    // Simulate API call for delivery request
     setLoading(true);
     setTimeout(() => {
       const newRequest: DeliveryRequest = {
@@ -92,7 +80,6 @@ const DroneDelivery = () => {
       description: `Estimated arrival in ${deliveryRequest.estimatedTime} minutes`,
     });
     
-    // Simulate delivery completion after 5 seconds for demo purposes
     setTimeout(() => {
       setDeliveryRequest({
         ...deliveryRequest,
@@ -294,7 +281,7 @@ const DroneDelivery = () => {
             <Card className="mb-8 border-medify-blue border">
               <CardHeader className="bg-medify-blue/5">
                 <CardTitle className="flex items-center">
-                  <Drone className="mr-2 text-medify-blue" />
+                  <Rocket className="mr-2 text-medify-blue" />
                   Delivery Status
                 </CardTitle>
               </CardHeader>
@@ -368,7 +355,7 @@ const DroneDelivery = () => {
                 {deliveryRequest.status === "in-transit" && (
                   <div className="p-4 bg-blue-50 rounded-lg text-center">
                     <div className="flex flex-col items-center space-y-2">
-                      <Drone size={32} className="text-medify-blue animate-pulse-subtle" />
+                      <Rocket size={32} className="text-medify-blue animate-pulse-subtle" />
                       <p className="text-blue-800 font-medium">Drone is en route to your location</p>
                       <p className="text-blue-700">Expected arrival in {deliveryRequest.estimatedTime} minutes</p>
                     </div>
