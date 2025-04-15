@@ -13,6 +13,16 @@ import {
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { Link } from "react-router-dom";
+import { 
+  Card, 
+  CardContent, 
+  CardHeader, 
+  CardTitle, 
+  CardFooter 
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "@/hooks/use-toast";
 
 interface DeliveryRequest {
   id: string;
@@ -40,12 +50,20 @@ const DroneDelivery = () => {
     e.preventDefault();
     
     if (!isAuthenticated) {
-      toast.error("Please login to request a drone delivery");
+      toast({
+        title: "Authentication Required",
+        description: "Please login to request a drone delivery",
+        variant: "destructive"
+      });
       return;
     }
     
     if (!address || !medicines || !phoneNumber) {
-      toast.error("Please fill in all required fields");
+      toast({
+        title: "Missing Information",
+        description: "Please fill in all required fields",
+        variant: "destructive"
+      });
       return;
     }
     
@@ -64,7 +82,10 @@ const DroneDelivery = () => {
       setDeliveryRequest(newRequest);
       setLoading(false);
       setStep(2);
-      toast.success("Drone delivery request confirmed!");
+      toast({
+        title: "Success",
+        description: "Drone delivery request confirmed!"
+      });
     }, 2000);
   };
 
@@ -76,8 +97,9 @@ const DroneDelivery = () => {
       status: "in-transit",
     });
     
-    toast("Drone is now in transit", {
-      description: `Estimated arrival in ${deliveryRequest.estimatedTime} minutes`,
+    toast({
+      title: "Drone Update",
+      description: `Drone is now in transit. Estimated arrival in ${deliveryRequest.estimatedTime} minutes`,
     });
     
     setTimeout(() => {
@@ -85,7 +107,10 @@ const DroneDelivery = () => {
         ...deliveryRequest,
         status: "delivered",
       });
-      toast.success("Medicine successfully delivered!");
+      toast({
+        title: "Delivery Complete",
+        description: "Medicine successfully delivered!"
+      });
     }, 5000);
   };
 
